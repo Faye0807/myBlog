@@ -1,11 +1,3 @@
----
-title: JavaScript细节简记
-date: 2018-10-16 10:57:57
-tags: JavaScript
-description: 记录各类属性等细节，以备随时查询
-keywords: JavaScript
-categories: JavaScript
----
 # webpack 
 > [Webpack 中文指南](https://zhaoda.net/webpack-handbook/index.html)
 > [深入浅出Webpack](http://webpack.wuhaolin.cn/)

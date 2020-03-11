@@ -1,11 +1,3 @@
----
-title: HTTP协议
-date: 2018-09-11 13:47:24
-tags: HTTP
-description: 读图解HTTP笔记
-categories: HTTP
-keywords: 读图解HTTP笔记
----
 ## web及网络基础
 ### 网路基础 `TCP/IP`
 > 通常使用的网络是在 `TCP/IP` 协议族的基础上运作的。而 `HTTP` 属于他内部的一个子集

@@ -1,11 +1,3 @@
----
-title: CSS细节简记
-date: 2018-10-15 16:43:23
-tags: CSS
-description: 记录各类属性等细节，以备随时查询
-keywords: CSS
-categories: CSS
----
 # LESS 文档
 > http://www.css88.com/doc/less/features/
 

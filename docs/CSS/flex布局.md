@@ -1,11 +1,3 @@
----
-title: flex布局
-date: 2018-09-27 16:15:45
-tags: CSS
-description: 简记flex布局
-categories: CSS
-keywords: flex
----
 > 参考链接
 > - [flex布局教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?^%$)
 > - [深入理解css3中的flex-grow、flex-shrink、flex-basis](http://zhoon.github.io/css3/2014/08/23/flex.html)

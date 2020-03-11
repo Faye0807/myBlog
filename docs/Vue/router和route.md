@@ -1,10 +1,3 @@
----
-title: router和route
-date: 2018-08-22 19:48:50
-tags: Vue
-description: this.$router与this.$route的区别
-categories: Vue
----
 > `this.$router`访问路由器，`this.$route`访问当前路由
 > 
 > `this.$router.history.current === this.$route`

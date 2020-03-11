@@ -1,11 +1,3 @@
----
-title: IOS的坑
-date: 2018-10-26 18:36:39
-tags: BUG
-description: 记录iOS开发问题及解决方法
-keywords: BUG
-categories: BUG
----
 # 1、overflow: hidden;失效 ，背景仍可滑动问题
 - 改变控制背景 滑动方法；不使用 `overflow: hidden`; 改用 `position:fixed`;
 - 缺点：用于页面顶部还可以，当你有弹框时， `body` 会自动滑到顶部（此处还没找到破解方法，各位大神有方法，望赐教）

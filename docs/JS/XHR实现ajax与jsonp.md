@@ -1,11 +1,3 @@
----
-title: XHR实现ajax与jsonp
-date: 2018-09-29 10:52:07
-tags: [JavaScript, AJAX]
-description: 简记flex布局
-categories: JavaScript
-keywords: XHR AJAX JSONP
----
 > 查看本章代码 [demo](https://github.com/Faye0807/task.git)
 ## XMLHttpRequest对象
 现在浏览器均内建 `XMLHttpRequest` 对象（IE5 和 IE6 使用 ActiveXObject）

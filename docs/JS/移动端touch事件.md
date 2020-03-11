@@ -1,12 +1,3 @@
----
-title: 浏览器工作原理
-date: 2018-08-28 16:38:05
-tags: 浏览器
-description: 简记浏览器工作原理
-categories: 移动端
-keywords: touch 移动端
----
-
 ## 300ms延迟
 点击移动端设备时，触发事件顺序：`touchstart` =》 `touchmove` =》 `touchend` =》 `click`
 在 `touchend` 事件后有 300 ms  延时（因为要确认是否进行双击）后再触发 `click` 事件

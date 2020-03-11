@@ -1,12 +1,3 @@
----
-title: css居中
-date: 2018-08-20 15:06:52
-tags: CSS
-description: 使用css居中的几种方法
-keywords: css 居中
-categories: CSS
----
-
 > css居中的方法有多种，需要居中的情形也有多种，下面就来总结一下
 
 ### `inline-block` 的居中

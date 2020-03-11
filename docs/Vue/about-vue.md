@@ -1,11 +1,3 @@
----
-title: Vue相关问题记录
-date: 2018-08-15 22:52:55
-tags: Vue
-description: 记录工作中Vue项目遇到的问题及解决方案，持续更新
-keywords: vue相关问题
-categories: Vue
----
 ## Vues数据双向绑定实现
 [code](https://github.com/Faye0807/task/tree/master/fe/views/demo/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%AE%9E%E7%8E%B0)
 

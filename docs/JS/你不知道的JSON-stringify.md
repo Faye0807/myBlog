@@ -1,12 +1,3 @@
----
-title: 你不知道的JSON.stringify
-date: 2018-10-17 11:37:21
-tags: JSON
-description: 转：你不知道的JSON.stringify
-keywords: JSON
-categories: JSON
----
-
 > 本文转自 [你不知道的JSON.stringify](https://blog.fundebug.com/2017/08/17/what-you-didnt-know%20about-json-stringify/)
 
 JSON已经逐渐替代XML被全世界的开发者广泛使用。本文深入讲解JavaScript中使用JSON.stringify的一些细节问题。首先简单回顾一下JSON和JavaScript：

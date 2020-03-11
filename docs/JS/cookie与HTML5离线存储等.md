@@ -1,11 +1,3 @@
----
-title: cookie与HTML5离线存储等
-date: 2018-10-16 16:10:08
-tags: HTML
-description: cookie、HTML5离线存储、localStorage、sessionStorage、
-keywords: HTML
-categories: HTML
----
 # cookies
 
 - 读取cookie `document.cookie`

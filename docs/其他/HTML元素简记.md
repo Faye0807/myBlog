@@ -1,12 +1,3 @@
----
-title: HTML元素简记
-date: 2018-10-26 11:25:40
-tags: HTML
-description: 记录各类属性等细节，以备随时查询
-keywords: HTML
-categories: HTML
----
-
 # input
 #### 1、`type = number`时候的坑
 

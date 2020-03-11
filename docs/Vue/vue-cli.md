@@ -1,12 +1,3 @@
----
-title: vue-cli项目部署到gitee Pages
-date: 2018-08-14 23:50:33
-description: 通过 vue-cli 搭建的spa项目,可以部署到giteePages
-keywords: vue vue-cli pages spa
-tags: [Vue, vue-cli, spa]
-categories: Vue
----
-
 > 通过 `vue-cli` 搭建的spa项目,可以部署到giteePages
 
 ## 首先 通过 vue-cli 搭建自己的vue项目

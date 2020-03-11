@@ -1,11 +1,3 @@
----
-title: js高效更改对象属性名
-date: 2018-08-23 14:39:52
-tags: JavaScript
-description: 使用js高效的更改对象中的属性名
-categories: JavaScript
-keywords: 使用js高效的更改对象中的属性名
----
 项目中需要使用到嵌套对象，且每层对象的数据结构相同，如下：
 ```js
 [

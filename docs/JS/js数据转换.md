@@ -1,11 +1,3 @@
----
-title: js数据转换
-date: 2018-08-21 22:47:49
-tags: [JavaScript]
-description: 记录设计js数据类型转换相关
-categories: JavaScript
-keywords: js中的数据类型转换
----
 ## 加减乘除运算
 > - 运算符会将其两边非数字类型的值经过 `Number` 转换为数值类型
 > - `字符串 + 数值` 时，返回拼接字符串
