@@ -1,11 +1,4 @@
----
-title: animation与transform、transition
-date: 2018-10-11 10:14:08
-tags: CSS
-description: animation与transform、transition
-categories: CSS
-keywords: animation与transform、transition
----
+{docsify-updated}
 # transform 变换
 ## 倾斜：skew(x-angle,y-angle),skewX(angle),skewY(angle)
 - skewX(angle)：元素高不变，x方向即宽被拉长
