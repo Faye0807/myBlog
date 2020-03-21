@@ -1,4 +1,7 @@
 * JS
+  * [JavaScript高级程序设计](https://www.processon.com/mindmap/5ad554dae4b046910639b2d7)
+  * [js权威指南知识树](https://www.processon.com/mindmap/5ac32147e4b0cfe2747e0c78)
+  * [ES6标准入门（第二版）](https://www.processon.com/mindmap/5b139d8ee4b00490ac83c480)
   * [cookie与HTML5离线存储等](JS/cookie与HTML5离线存储等.md)
   * [DOM方法](JS/DOM方法.md)
   * [JavaScript细节简记](JS/JavaScript细节简记.md)
