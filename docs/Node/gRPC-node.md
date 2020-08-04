@@ -69,4 +69,27 @@ message HelloResponse {
 
 ## 附
 
--   [Protocol Buffers 入门详解](https://segmentfault.com/a/1190000020286021?utm_source=tag-newest)
+-   vscode 插件 `vscode-proto3`
+
+## 疑问
+
+### 1.定义服务
+
+从 proto 文件加载服务描述符
+Node.js 的类库在运行时加载 .proto 中的客户端存根并动态生成服务描述符。
+
+要加载一个 .proto 文件，只需要 require gRPC 类库，然后使用它的 load() 方法：
+
+```js
+var grpc = require("grpc")
+var protoDescriptor = grpc.load(__dirname + "/route_guide.proto")
+// The protoDescriptor object has the full package hierarchy
+var example = protoDescriptor.examples
+```
+
+一旦你完成这个，存根构造函数是在 examples 命名空间（protoDescriptor.examples.RouteGuide）中而服务描述符（用来创建服务器）是存根（protoDescriptor.examples.RouteGuide.service）的一个属性。
+
+> 描述符是干啥的
+> 为什么是在 examples 命名空间，因为在他文件夹下？？=> 关联 proto 文件的 package 的值
+> 存根有是干啥的
+> 描述符是干啥的
