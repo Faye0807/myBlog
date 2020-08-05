@@ -93,3 +93,41 @@ var example = protoDescriptor.examples
 > 为什么是在 examples 命名空间，因为在他文件夹下？？=> 关联 proto 文件的 package 的值
 > 存根有是干啥的
 > 描述符是干啥的
+
+## 包的作用
+
+-   `@grpc/grpc-js` 是一个纯 js grpc 客户端，几乎可以替代 grpc 。 [对比](https://github.com/grpc/grpc-node/tree/master/packages/grpc-js)
+-   [`@grpc/proto-loader`](https://github.com/grpc/grpc-node/tree/master/packages/proto-loader) 用以加载 proto 文件的工具包
+-   [`@grpc/grpc-tools`](https://github.com/grpc/grpc-node/tree/master/packages/grpc-tools) node 编译 proto 工具
+
+安装报错
+
+```s
+> grpc-tools@1.9.1 install /usr/local/lib/node_modules/grpc-tools
+> node-pre-gyp install
+
+node-pre-gyp WARN Using needle for node-pre-gyp https download
+node-pre-gyp ERR! Completion callback never invoked!
+node-pre-gyp ERR! System Darwin 19.4.0
+node-pre-gyp ERR! command "/usr/local/bin/node" "/usr/local/lib/node_modules/grpc-tools/node_modules/.bin/node-pre-gyp" "install"
+node-pre-gyp ERR! cwd /usr/local/lib/node_modules/grpc-tools
+node-pre-gyp ERR! node -v v10.15.1
+node-pre-gyp ERR! node-pre-gyp -v v0.15.0
+node-pre-gyp ERR! This is a bug in `node-pre-gyp`.
+node-pre-gyp ERR! Try to update node-pre-gyp and file an issue if it does not help:
+node-pre-gyp ERR! <https://github.com/mapbox/node-pre-gyp/issues>
+npm ERR! code ELIFECYCLE
+npm ERR! errno 6
+npm ERR! grpc-tools@1.9.1 install: `node-pre-gyp install`
+npm ERR! Exit status 6
+npm ERR!
+npm ERR! Failed at the grpc-tools@1.9.1 install script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR! /Users/qitmac/.npm/\_logs/2020-08-05T10_08_38_099Z-debug.log
+```
+
+[解决方案 👇](https://github.com/mapbox/node-pre-gyp/issues/433)
+
+`sudo npm install --unsafe-perm -g grpc-tools`

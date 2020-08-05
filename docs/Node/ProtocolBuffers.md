@@ -104,3 +104,41 @@ package employeeCopy;
 ```
 
 > 同上注意：指定的路径必须是已经存在的文件夹
+
+3. grpc_out 命令
+
+指定 xxx_grpc_pb.js 文件的输出目录
+
+是跟服务相关，创建，调用，绑定，实现相关
+】
+
+4. import_style=commonjs
+
+binary: 输出文件目录，commonjs 时候 libary 不起作用
+`protoc --js_out=import_style=commonjs,binary:output_I employee.proto employeeCopy.proto`
+
+-   commonjs 跟 Closure Imports 两个方式生成的 grpc_pd 文件是一样的【同时内部都引入`_pg.js`
+-   commnjs 会生成 `_pb.js` 文件
+-   Closure 默认是 以 message 为单位 生成 message 小写名称命名的文件,可以通过 `libary` 指定生成文件名称 合并成同一个文件,`libary` 的值也可以是 `demo/somefilename`
+
+5. plugin 命令
+
+## 对 proto 文件有两种使用方式
+
+1. 使用 `@grpc/proto-loader` 动态加载
+
+客户端跟服务端都是使用该方法去加载 proto 文件，两者的区别：
+
+服务端
+
+-   需要实例化一个服务
+-   绑定 ip 跟端口号
+-   创建存根
+
+客户端
+
+-   链接服务
+-   创建存根
+-   调用方法
+
+2. protoc 自行编译后 导入文件使用
