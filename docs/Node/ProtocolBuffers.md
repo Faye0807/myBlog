@@ -107,19 +107,18 @@ package employeeCopy;
 
 3. grpc_out 命令
 
-指定 xxx_grpc_pb.js 文件的输出目录
+指定 `xxx_grpc_pb.js` 文件的输出目录
 
-是跟服务相关，创建，调用，绑定，实现相关
-】
+`_grpc_pb.js` 文件是跟服务相关，创建，调用，绑定，实现相关
 
 4. import_style=commonjs
 
 binary: 输出文件目录，commonjs 时候 libary 不起作用
-`protoc --js_out=import_style=commonjs,binary:output_I employee.proto employeeCopy.proto`
+`protoc --js_out=import_style=commonjs,binary:output_I --grpc_out=deome/path employee.proto employeeCopy.proto`
 
 -   commonjs 跟 Closure Imports 两个方式生成的 grpc_pd 文件是一样的【同时内部都引入`_pg.js`
 -   commnjs 会生成 `_pb.js` 文件
--   Closure 默认是 以 message 为单位 生成 message 小写名称命名的文件,可以通过 `libary` 指定生成文件名称 合并成同一个文件,`libary` 的值也可以是 `demo/somefilename`
+-   Closure 默认是 以 message 为单位 生成 message 小写名称命名的文件,可以通过 `libary` 指定生成文件名称 合并成同一个文件,`libary` 的值也可以是 `demo/somefilename` 其中 demo 文件路径可以当前 不存在，protoc 编译时自动生成
 
 5. plugin 命令
 
@@ -127,7 +126,7 @@ binary: 输出文件目录，commonjs 时候 libary 不起作用
 
 1. 使用 `@grpc/proto-loader` 动态加载
 
-客户端跟服务端都是使用该方法去加载 proto 文件，两者的区别：
+客户端跟服务端都是使用该方法去加载 proto 文件，两端的区别：
 
 服务端
 
@@ -142,3 +141,151 @@ binary: 输出文件目录，commonjs 时候 libary 不起作用
 -   调用方法
 
 2. protoc 自行编译后 导入文件使用
+
+编译生成的文件作用大致：提供对方法入参、出参的校验与取、赋值
+与动态加载方法的区别：
+
+-   执行效率的话 demo 看不出太多差异
+-   使用方法有些出入 如下 👇[同官方 node demo](https://github.com/grpc/grpc/tree/master/examples) 【对比来看，其实动态加载的方法更利于开发，不需要一个一个的拿字段、给字段赋值】
+
+例如下 proto
+
+```
+package helloworld;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
+```
+
+```js
+// 静态引入法： client端
+// 通过 setName 给name赋值
+// getMessage 获取 message 值
+var messages = require("./helloworld_pb")
+var services = require("./helloworld_grpc_pb")
+
+var grpc = require("grpc")
+
+function main() {
+    var client = new services.GreeterClient("localhost:50051", grpc.credentials.createInsecure())
+    var request = new messages.HelloRequest()
+    var user
+    if (process.argv.length >= 3) {
+        user = process.argv[2]
+    } else {
+        user = "world"
+    }
+    request.setName(user)
+    client.sayHello(request, function (err, response) {
+        console.log("Greeting:", response.getMessage())
+    })
+}
+
+main()
+
+// ======= 以下是动态加载法 ==========
+// 直接给 name 赋值，用 message 获取
+var PROTO_PATH = __dirname + "/../../protos/helloworld.proto"
+
+var grpc = require("grpc")
+var protoLoader = require("@grpc/proto-loader")
+var packageDefinition = protoLoader.loadSync(PROTO_PATH, {
+    keepCase: true,
+    longs: String,
+    enums: String,
+    defaults: true,
+    oneofs: true,
+})
+var hello_proto = grpc.loadPackageDefinition(packageDefinition).helloworld
+
+function main() {
+    var client = new hello_proto.Greeter("localhost:50051", grpc.credentials.createInsecure())
+    var user
+    if (process.argv.length >= 3) {
+        user = process.argv[2]
+    } else {
+        user = "world"
+    }
+    client.sayHello({ name: user }, function (err, response) {
+        console.log("Greeting:", response.message)
+    })
+}
+
+main()
+
+// ======= 同理 服务端也是
+// 动态加载 - 服务端
+var PROTO_PATH = __dirname + "/../../protos/helloworld.proto"
+
+var grpc = require("grpc")
+var protoLoader = require("@grpc/proto-loader")
+var packageDefinition = protoLoader.loadSync(PROTO_PATH, {
+    keepCase: true,
+    longs: String,
+    enums: String,
+    defaults: true,
+    oneofs: true,
+})
+var hello_proto = grpc.loadPackageDefinition(packageDefinition).helloworld
+
+/**
+ * Implements the SayHello RPC method.
+ */
+function sayHello(call, callback) {
+    callback(null, { message: "Hello " + call.request.name })
+}
+
+/**
+ * Starts an RPC server that receives requests for the Greeter service at the
+ * sample server port
+ */
+function main() {
+    var server = new grpc.Server()
+    server.addService(hello_proto.Greeter.service, { sayHello: sayHello })
+    server.bind("0.0.0.0:50051", grpc.ServerCredentials.createInsecure())
+    server.start()
+}
+
+main()
+
+// 静态引入 - 服务端
+var messages = require("./helloworld_pb")
+var services = require("./helloworld_grpc_pb")
+
+var grpc = require("grpc")
+
+/**
+ * Implements the SayHello RPC method.
+ */
+function sayHello(call, callback) {
+    var reply = new messages.HelloReply()
+    reply.setMessage("Hello " + call.request.getName())
+    callback(null, reply)
+}
+
+/**
+ * Starts an RPC server that receives requests for the Greeter service at the
+ * sample server port
+ */
+function main() {
+    var server = new grpc.Server()
+    server.addService(services.GreeterService, { sayHello: sayHello })
+    server.bind("0.0.0.0:50051", grpc.ServerCredentials.createInsecure())
+    server.start()
+}
+
+main()
+```

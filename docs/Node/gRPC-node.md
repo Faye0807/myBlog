@@ -98,7 +98,7 @@ var example = protoDescriptor.examples
 
 -   `@grpc/grpc-js` 是一个纯 js grpc 客户端，几乎可以替代 grpc 。 [对比](https://github.com/grpc/grpc-node/tree/master/packages/grpc-js)
 -   [`@grpc/proto-loader`](https://github.com/grpc/grpc-node/tree/master/packages/proto-loader) 用以加载 proto 文件的工具包
--   [`@grpc/grpc-tools`](https://github.com/grpc/grpc-node/tree/master/packages/grpc-tools) node 编译 proto 工具
+-   [`@grpc/grpc-tools`](https://github.com/grpc/grpc-node/tree/master/packages/grpc-tools) node 编译 proto 工具;需要全局安装
 
 安装报错
 
@@ -131,3 +131,5 @@ npm ERR! /Users/qitmac/.npm/\_logs/2020-08-05T10_08_38_099Z-debug.log
 [解决方案 👇](https://github.com/mapbox/node-pre-gyp/issues/433)
 
 `sudo npm install --unsafe-perm -g grpc-tools`
+
+-   [grpc_tools_node_protoc_ts](https://www.npmjs.com/package/grpc_tools_node_protoc_ts) 根据 grpc_tools_node_protoc 生成的 js 代码生成相应的 TypeScript d.ts 代码
