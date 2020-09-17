@@ -7,3 +7,12 @@
 - `Command + F2` 批量选中【先选中一个a，使用快捷键后则选中其他a】
 - `Option + Command + ↑/↓` 向上/下复制光标
 - `Option + Command + →/←` 依据打开文件的顺序，向左右切换tab
+
+# 一些好用的插件
+- Better Comments 美化注释
+- Bracket Pair Colorzer 彩色大括号
+- ESLint
+- TSLint
+- GitLents
+- Prettier
+- Chinese(simpified) Language Pack... vscode的中文包
