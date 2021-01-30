@@ -1,6 +1,8 @@
 # protoBuff
 
-> [proto3](https://developers.google.com/protocol-buffers/docs/proto3) > [[转]Protobuf3 语法指南](https://colobu.com/2017/03/16/Protobuf3-language-guide/)
+> [proto3](https://developers.google.com/protocol-buffers/docs/proto3) 
+
+> [[转]Protobuf3 语法指南](https://colobu.com/2017/03/16/Protobuf3-language-guide/)
 
 -   [Protocol Buffers 入门详解](https://segmentfault.com/a/1190000020286021?utm_source=tag-newest)
 
@@ -150,7 +152,7 @@ binary: 输出文件目录，commonjs 时候 libary 不起作用
 
 例如下 proto
 
-```
+```js
 package helloworld;
 
 // The greeting service definition.

@@ -1,6 +1,8 @@
 # gRPC-node
 
-> 👉[参考文档](http://doc.oschina.net/grpc?t=58008)
+> 👉 [参考文档](http://doc.oschina.net/grpc?t=58008)
+>
+> 👉 [egg-grp](https://github.com/eggjs/egg-grpc/blob/master/config/config.default.js)
 
 ## RPC、gRPC、gRPC-node 都是个啥？
 
