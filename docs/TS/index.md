@@ -1,0 +1,2 @@
+- [深入理解 TypeScript](https://jkchao.github.io/typescript-book-chinese/)
+- [TypeScript 类型编写指南](https://gist.github.com/pissang/4d1cced7b7d32de41f9a815c27e4490e)
