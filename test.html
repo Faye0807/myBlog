@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div onclick="handleLoad()">handleLoad</div>
+        <input type="text" id="input_1">
+        +
+        <input type="text" id="input_2" onchange="handleChange()">
+        =
+        <input type="text" id="input_3">
+        <!-- <div id="result"></div> -->
+        <script>
+            function handleChange(params) {
+                var input_1 = document.getElementById("input_1")?.value
+                var input_2 = document.getElementById("input_2")?.value
+                document.getElementById("input_3").value = Number(input_1) + Number(input_2)
+            }
+            function foo1(params) {
+                console.log('foo1')
+                foo2()
+            }
+            function foo2(params) {
+                console.log('foo2')
+                foo3()
+            }
+            function foo3(params) {
+                console.log('foo3')
+            }
+            handleLoad = () => {
+                console.log('load')
+                foo1()
+            }
+            window.onload = handleLoad
+        </script>
+    </body>
+</html>
